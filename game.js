@@ -5,7 +5,7 @@ class Demo1 extends AdventureScene {
 
     onEnter() {
 
-        let clip = this.add.text(this.w * 0.3, this.w * 0.3, "📎 paperclip")
+        let clip = this.add.text(this.w * 0.75, this.w * 0.15, "📎 paperclip")
             .setFontSize(this.s * 2)
             .setInteractive()
             .on('pointerover', () => this.showMessage("Metal, bent."))
@@ -97,8 +97,15 @@ class Intro extends Phaser.Scene {
         super('intro')
     }
     create() {
-        this.add.text(50,50, "Adventure awaits!").setFontSize(50);
-        this.add.text(50,100, "Click anywhere to begin.").setFontSize(20);
+        this.add.rectangle(600, 540, 750, 800, 0xaaaaaa);
+        this.add.text(300, 200, "My Cherished Memories with You").setFontSize(35);
+        
+        this.add.text(this.w * 0.3, this.w * 0.4, "just go back")
+            .setFontSize(this.s * 2)
+            .setInteractive()
+            .on('pointerover', () => {
+                this.showMessage("You've got no other choice, really.");
+            })
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
             this.time.delayedCall(1000, () => this.scene.start('demo1'));
