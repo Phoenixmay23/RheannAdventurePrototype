@@ -97,18 +97,27 @@ class Intro extends Phaser.Scene {
         super('intro')
     }
     create() {
-        this.add.rectangle(600, 540, 750, 800, 0xaaaaaa);
+        this.add.rectangle(600, 540, 750, 800, 0x85200c);
         this.add.text(300, 200, "My Cherished Memories with You").setFontSize(35);
         
-        this.add.text(this.w * 0.3, this.w * 0.4, "just go back")
-            .setFontSize(this.s * 2)
+        this.add.text(1200, 350, "What is this book?")
+            .setFontSize(50)
             .setInteractive()
-            .on('pointerover', () => {
-                this.showMessage("You've got no other choice, really.");
-            })
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('demo1'));
+            .on('pointerover', () => 
+                this.add.text(1200, 400, `A collection of some of my core 
+memories of our relationship.`)
+                    .setFontSize(30)
+            )
+
+        this.add.text(1400, 750, "Open")
+            .setFontSize(50)
+            .setInteractive()
+            //.on('pointerover', () =>
+            //    this.setColor('orange')
+            //)
+            .on('pointerdown', () => {
+                this.cameras.main.fade(1000, 0,0,0);
+                this.time.delayedCall(1000, () => this.scene.start('demo1'));
         });
     }
 }
